@@ -27,7 +27,8 @@ int main() {
     float area_carta_um;
     float pib_carta_um;
     int npt_carta_um;
-
+    float densidade_carta_um;
+    float pibcapita_carta_um;
     // Carta 2
     char codigo_carta_dois[4];
     char nome_carta_dois[50];
@@ -36,6 +37,8 @@ int main() {
     float area_carta_dois;
     float pib_carta_dois;
     int npt_carta_dois;
+    float densidade_carta_dois;
+    float pibcapita_carta_dois;
 
     // Coleta de dados
     printf("Super Trunfo de Cidades\n");
@@ -85,7 +88,13 @@ int main() {
     printf("Nº de Pontos Turísticos da Segunda Carta: ");
     scanf("%d", &npt_carta_dois);
 
-    
+    // Cálculo de PIB per capita e densidade populacional
+    pibcapita_carta_um = pib_carta_um / populacao_carta_um; // PIB em milhões / população
+    densidade_carta_um = (float)populacao_carta_um / area_carta_um; // População / área em km²
+
+    pibcapita_carta_dois = pib_carta_dois / populacao_carta_dois; // PIB em milhões / população
+    densidade_carta_dois = (float)populacao_carta_dois / area_carta_dois; // População / área em km²
+
     // Exibir os dados da Primeira Carta
     printf("\n---Dados da Primeira Carta---\n");
     printf("Código: %s\n", codigo_carta_um);
@@ -95,6 +104,8 @@ int main() {
     printf("Área: %.2f km²\n", area_carta_um);
     printf("PIB: %.2f milhões\n", pib_carta_um);
     printf("Pontos Turísticos: %d\n", npt_carta_um);
+    printf("Densidade Populacional: %.2f\n", densidade_carta_um);
+    printf("PIB Per Capita: %.2f\n", pibcapita_carta_um * 1000000);
 
     // Exibir os dados da Segunda Carta
     printf("\n---Dados da Segunda Carta---\n");
@@ -105,6 +116,8 @@ int main() {
     printf("Área: %.2f km²\n", area_carta_dois);
     printf("PIB: %.2f milhões\n", pib_carta_dois);
     printf("Pontos Turísticos: %d\n", npt_carta_dois);
+    printf("Densidade Populacional: %.2f\n", densidade_carta_dois);
+    printf("PIB Per Capita: %.2f\n", pibcapita_carta_dois * 1000000);
 
     return 0;
 }

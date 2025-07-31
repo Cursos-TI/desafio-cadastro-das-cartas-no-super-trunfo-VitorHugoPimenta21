@@ -88,19 +88,84 @@ int main() {
     printf("Densidade Populacional: %.2f hab/km²\n", densidade_carta_dois);
     printf("PIB per Capita: R$ %.2f\n", pibcapita_carta_dois);
 
-    // Comparação com base em um único atributo (POPULAÇÃO)
+    // Menu interativo
+    int opcao;
+
+    printf("\n========== MENU DE COMPARAÇÃO ==========\n");
+    printf("Escolha o atributo para comparar:\n");
+    printf("1 - População\n");
+    printf("2 - Área\n");
+    printf("3 - PIB\n");
+    printf("4 - Número de Pontos Turísticos\n");
+    printf("5 - Densidade Demográfica\n");
+    printf("Digite sua opção (1 a 5): ");
+    scanf("%d", &opcao);
+
     printf("\n========== COMPARAÇÃO FINAL ==========\n");
-    printf("Atributo Comparado: População\n");
 
-    printf("Carta 1 - %s (%c): %lu habitantes\n", nome_carta_um, estado_carta_um, populacao_carta_um);
-    printf("Carta 2 - %s (%c): %lu habitantes\n", nome_carta_dois, estado_carta_dois, populacao_carta_dois);
+    switch (opcao) {
+        case 1:
+            printf("Atributo Comparado: População\n");
+            printf("Carta 1 - %s: %lu habitantes\n", nome_carta_um, populacao_carta_um);
+            printf("Carta 2 - %s: %lu habitantes\n", nome_carta_dois, populacao_carta_dois);
+            if (populacao_carta_um > populacao_carta_dois)
+                printf("\nResultado: Carta 1 (%s) venceu!\n", nome_carta_um);
+            else if (populacao_carta_um < populacao_carta_dois)
+                printf("\nResultado: Carta 2 (%s) venceu!\n", nome_carta_dois);
+            else
+                printf("\nResultado: Empate!\n");
+            break;
 
-    if (populacao_carta_um > populacao_carta_dois) {
-        printf("\nResultado: Carta 1 (%s) venceu!\n", nome_carta_um);
-    } else if (populacao_carta_um < populacao_carta_dois) {
-        printf("\nResultado: Carta 2 (%s) venceu!\n", nome_carta_dois);
-    } else {
-        printf("\nResultado: Empate!\n");
+        case 2:
+            printf("Atributo Comparado: Área\n");
+            printf("Carta 1 - %s: %.2f km²\n", nome_carta_um, area_carta_um);
+            printf("Carta 2 - %s: %.2f km²\n", nome_carta_dois, area_carta_dois);
+            if (area_carta_um > area_carta_dois)
+                printf("\nResultado: Carta 1 (%s) venceu!\n", nome_carta_um);
+            else if (area_carta_um < area_carta_dois)
+                printf("\nResultado: Carta 2 (%s) venceu!\n", nome_carta_dois);
+            else
+                printf("\nResultado: Empate!\n");
+            break;
+
+        case 3:
+            printf("Atributo Comparado: PIB\n");
+            printf("Carta 1 - %s: R$ %.2f milhões\n", nome_carta_um, pib_carta_um);
+            printf("Carta 2 - %s: R$ %.2f milhões\n", nome_carta_dois, pib_carta_dois);
+            if (pib_carta_um > pib_carta_dois)
+                printf("\nResultado: Carta 1 (%s) venceu!\n", nome_carta_um);
+            else if (pib_carta_um < pib_carta_dois)
+                printf("\nResultado: Carta 2 (%s) venceu!\n", nome_carta_dois);
+            else
+                printf("\nResultado: Empate!\n");
+            break;
+
+        case 4:
+            printf("Atributo Comparado: Pontos Turísticos\n");
+            printf("Carta 1 - %s: %d pontos\n", nome_carta_um, npt_carta_um);
+            printf("Carta 2 - %s: %d pontos\n", nome_carta_dois, npt_carta_dois);
+            if (npt_carta_um > npt_carta_dois)
+                printf("\nResultado: Carta 1 (%s) venceu!\n", nome_carta_um);
+            else if (npt_carta_um < npt_carta_dois)
+                printf("\nResultado: Carta 2 (%s) venceu!\n", nome_carta_dois);
+            else
+                printf("\nResultado: Empate!\n");
+            break;
+
+        case 5:
+            printf("Atributo Comparado: Densidade Populacional\n");
+            printf("Carta 1 - %s: %.2f hab/km²\n", nome_carta_um, densidade_carta_um);
+            printf("Carta 2 - %s: %.2f hab/km²\n", nome_carta_dois, densidade_carta_dois);
+            if (densidade_carta_um < densidade_carta_dois)
+                printf("\nResultado: Carta 1 (%s) venceu!\n", nome_carta_um);
+            else if (densidade_carta_um > densidade_carta_dois)
+                printf("\nResultado: Carta 2 (%s) venceu!\n", nome_carta_dois);
+            else
+                printf("\nResultado: Empate!\n");
+            break;
+
+        default:
+            printf("Opção inválida!\n");
     }
 
     return 0;

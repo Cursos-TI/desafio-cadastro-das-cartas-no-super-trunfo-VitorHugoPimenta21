@@ -28,36 +28,36 @@ int main() {
 
     // Coleta de dados da Primeira Carta
     printf("\n--- Primeira Carta ---\n"); 
-    printf("Código da Primeira Carta: ");
+    printf("Código: ");
     scanf("%s", codigo_carta_um);
-    printf("Nome da Primeira Carta: ");
+    printf("Nome da Cidade: ");
     scanf(" %[^\n]", nome_carta_um);
-    printf("Estado da Primeira Carta (sigla): ");
+    printf("Estado (sigla): ");
     scanf(" %c", &estado_carta_um);
-    printf("População da Primeira Carta: ");
+    printf("População: ");
     scanf("%lu", &populacao_carta_um);
-    printf("Área da Primeira Carta (km²): ");
+    printf("Área (km²): ");
     scanf("%f", &area_carta_um);
-    printf("PIB da Primeira Carta (em milhões): ");
+    printf("PIB (em milhões): ");
     scanf("%f", &pib_carta_um);
-    printf("Nº de Pontos Turísticos da Primeira Carta: ");
+    printf("Número de Pontos Turísticos: ");
     scanf("%d", &npt_carta_um);
 
     // Coleta de dados da Segunda Carta
     printf("\n--- Segunda Carta ---\n"); 
-    printf("Código da Segunda Carta: ");
+    printf("Código: ");
     scanf("%s", codigo_carta_dois);
-    printf("Nome da Segunda Carta: ");
+    printf("Nome da Cidade: ");
     scanf(" %[^\n]", nome_carta_dois);
-    printf("Estado da Segunda Carta (sigla): ");
+    printf("Estado (sigla): ");
     scanf(" %c", &estado_carta_dois);
-    printf("População da Segunda Carta: ");
+    printf("População: ");
     scanf("%lu", &populacao_carta_dois);
-    printf("Área da Segunda Carta (km²): ");
+    printf("Área (km²): ");
     scanf("%f", &area_carta_dois);
-    printf("PIB da Segunda Carta (em milhões): ");
+    printf("PIB (em milhões): ");
     scanf("%f", &pib_carta_dois);
-    printf("Nº de Pontos Turísticos da Segunda Carta: ");
+    printf("Número de Pontos Turísticos: ");
     scanf("%d", &npt_carta_dois);
 
     // Cálculo de Densidade Populacional e PIB per capita
@@ -67,19 +67,41 @@ int main() {
     densidade_carta_dois = populacao_carta_dois / area_carta_dois;
     pibcapita_carta_dois = pib_carta_dois * 1000000 / populacao_carta_dois;
 
-    // Comparação pelo atributo escolhido: População
-    printf("\n--- Comparação de Cartas (Atributo: População) ---\n");
+    // Exibição dos dados das cartas
+    printf("\n========== DADOS DAS CARTAS ==========\n");
+
+    printf("\n[CARTA 1 - %s (%c)]\n", nome_carta_um, estado_carta_um);
+    printf("Código: %s\n", codigo_carta_um);
+    printf("População: %lu\n", populacao_carta_um);
+    printf("Área: %.2f km²\n", area_carta_um);
+    printf("PIB: R$ %.2f milhões\n", pib_carta_um);
+    printf("Pontos Turísticos: %d\n", npt_carta_um);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidade_carta_um);
+    printf("PIB per Capita: R$ %.2f\n", pibcapita_carta_um);
+
+    printf("\n[CARTA 2 - %s (%c)]\n", nome_carta_dois, estado_carta_dois);
+    printf("Código: %s\n", codigo_carta_dois);
+    printf("População: %lu\n", populacao_carta_dois);
+    printf("Área: %.2f km²\n", area_carta_dois);
+    printf("PIB: R$ %.2f milhões\n", pib_carta_dois);
+    printf("Pontos Turísticos: %d\n", npt_carta_dois);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidade_carta_dois);
+    printf("PIB per Capita: R$ %.2f\n", pibcapita_carta_dois);
+
+    // Comparação com base em um único atributo (POPULAÇÃO)
+    printf("\n========== COMPARAÇÃO FINAL ==========\n");
+    printf("Atributo Comparado: População\n");
+
     printf("Carta 1 - %s (%c): %lu habitantes\n", nome_carta_um, estado_carta_um, populacao_carta_um);
     printf("Carta 2 - %s (%c): %lu habitantes\n", nome_carta_dois, estado_carta_dois, populacao_carta_dois);
 
     if (populacao_carta_um > populacao_carta_dois) {
-        printf("Resultado: Carta 1 (%s) venceu!\n", nome_carta_um);
+        printf("\nResultado: Carta 1 (%s) venceu!\n", nome_carta_um);
     } else if (populacao_carta_um < populacao_carta_dois) {
-        printf("Resultado: Carta 2 (%s) venceu!\n", nome_carta_dois);
+        printf("\nResultado: Carta 2 (%s) venceu!\n", nome_carta_dois);
     } else {
-        printf("Resultado: Empate!\n");
+        printf("\nResultado: Empate!\n");
     }
 
     return 0;
 }
-
